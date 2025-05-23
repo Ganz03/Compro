@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'arganapulungan@gmail.com',
             'email_verified_at' => null,
-            'password' => Hash::make('password'),
+            'password' => '$2y$12$5vrFr.JNO0wccjq1K.0..uXmIAV5jLOq5c5yYNvaEJFzif2uWbTOe',
             'remember_token' => null,
             'created_at' => '2025-05-12 02:36:45',
             'updated_at' => '2025-05-12 02:36:45',
