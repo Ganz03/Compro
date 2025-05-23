@@ -78,7 +78,7 @@
                                         Artikel / {{ $item->published_at->format('d M Y') }}
                                     </p>
                                     
-                                    <a href="{{ route('news.show', $item->slug) }}" class="text-blue-600 hover:underline inline-block mt-2">
+                                    <a href="{{ route('news.show', $item->slug) }}" class="text-blue-600 hover:text-blue-800 inline-block mt-2">
                                         Baca selengkapnya →
                                     </a>
                                 </div>

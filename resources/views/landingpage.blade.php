@@ -12,7 +12,7 @@
     <style>
         /* Apply the background to the entire page */
         body {
-            /* background-image: url("{{ asset('images/Desain tanpa judul.svg') }}");*/
+            background-image: url("{{ asset('images/background.jpg') }}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -33,14 +33,14 @@
                 <a href="{{ url('/') }}">
                     <img src="{{ asset('images/logo.png') }}" alt="Company Logo" class="h-10">
                 </a>
-                <span class="text-xl font-bold text-black">PT. SIDOREJO MAKMUR SEJAHTERA</span>
+                <span class="text-xl font-bold text-white">PT. SIDOREJO MAKMUR SEJAHTERA</span>
             </div>
 
             <!-- Navigation -->
             <nav class="hidden md:flex items-center gap-x-6">
                 <!-- Dropdown menu Our Business -->
                 <div class="relative" x-data="{ open: false }">
-                    <a href="#" @click.prevent="open = !open" class="text-black hover:text-blue-500 flex items-center">
+                    <a href="#" @click.prevent="open = !open" class="text-white hover:text-blue-500 flex items-center">
                         Our Business
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="{'rotate-180': open}">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -65,10 +65,10 @@
                 </div>
                 
                 <!-- Other navigation items remain unchanged -->
-                <a href="{{ route('aboutus') }}" class="text-black hover:text-blue-500">About Us</a>
-                <a href="{{ route('career') }}" class="text-black hover:text-blue-500">Career</a>
-                <a href="{{ route('news.index') }}" class="text-black hover:text-blue-500">News</a>
-                <a href="{{ route('contact') }}" class="text-black hover:text-blue-500">Contact</a>
+                <a href="{{ route('aboutus') }}" class="text-white hover:text-blue-500">About Us</a>
+                <a href="{{ route('career') }}" class="text-white hover:text-blue-500">Career</a>
+                <a href="{{ route('news.index') }}" class="text-white hover:text-blue-500">News</a>
+                <a href="{{ route('contact') }}" class="text-white hover:text-blue-500">Contact</a>
             </nav>
 
             <!-- Hamburger Menu Button (Mobile) -->
@@ -110,10 +110,10 @@
             </div>
             
             <!-- Menu lainnya tetap sama -->
-            <a href="{{ route('aboutus') }}" class="block text-black hover:text-blue-500">About Us</a>
-            <a href="{{ route('career') }}" class="block text-black hover:text-blue-500">Career</a>
-            <a href="{{ route('news.index') }}" class="block text-black hover:text-blue-500">News</a>
-            <a href="{{ route('contact') }}" class="block text-black hover:text-blue-500">Contact</a>
+            <a href="{{ route('aboutus') }}" class="block text-white hover:text-blue-500">About Us</a>
+            <a href="{{ route('career') }}" class="block text-white hover:text-blue-500">Career</a>
+            <a href="{{ route('news.index') }}" class="block text-white hover:text-blue-500">News</a>
+            <a href="{{ route('contact') }}" class="block text-white hover:text-blue-500">Contact</a>
         </nav>
     </header>
     <!-- Hero Section -->
@@ -131,21 +131,23 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16">
+    <section id="about-alt2" class="py-16">
         <div class="container mx-auto max-w-7xl">
-            <div class="flex flex-col md:flex-row items-center md:space-x-10 px-4 lg:px-6">
-                <div class="md:w-1/2 text-center md:text-left" data-aos="fade-right" data-aos-duration="1000">
-                    <p class="text-lg font-medium text-gray-800">Tentang Kami</p>
-                    <h1 class="text-4xl font-semibold text-gray-700 mt-4">{{ $aboutUs->company_name }}</h1>
-                    <p class="mt-4 text-gray-600">{{ $aboutUs->company_description }}</p>
-                    <a href="#" class="inline-block mt-6 px-6 py-3 bg-yellow-500 text-white rounded-lg shadow hover:bg-yellow-600 transition-colors">Tentang Kami</a>
-                </div>
-                <div class="md:w-1/2 mt-8 md:mt-0" data-aos="fade-left" data-aos-duration="1000">
-                    @if($aboutUs->image_name)
-                        <img src="{{ asset('images/aboutus/' . $aboutUs->image_name) }}" alt="Image" class="rounded-lg shadow-lg w-full max-w-[600px] mx-auto">
-                    @else
-                        <p>No image available.</p>
-                    @endif
+            <div class="backdrop-blur-lg bg-white/20 rounded-2xl shadow-xl border border-white/30 p-8">
+                <div class="flex flex-col md:flex-row items-center md:space-x-10 px-4 lg:px-6">
+                    <div class="md:w-1/2 text-center md:text-left" data-aos="fade-right" data-aos-duration="1000">
+                        <p class="text-lg font-medium text-gray-800">Tentang Kami</p>
+                        <h1 class="text-4xl font-semibold text-gray-700 mt-4">{{ $aboutUs->company_name }}</h1>
+                        <p class="mt-4 text-gray-600">{{ $aboutUs->company_description }}</p>
+                        <a href="{{ route('aboutus') }}" class="inline-block mt-6 px-6 py-3 bg-yellow-500 text-white rounded-lg shadow hover:bg-yellow-600 transition-colors">Tentang Kami</a>
+                    </div>
+                    <div class="md:w-1/2 mt-8 md:mt-0" data-aos="fade-left" data-aos-duration="1000">
+                        @if($aboutUs->image_name)
+                            <img src="{{ asset('images/aboutus/' . $aboutUs->image_name) }}" alt="Image" class="rounded-lg shadow-lg w-full max-w-[600px] mx-auto">
+                        @else
+                            <p>No image available.</p>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
@@ -153,7 +155,7 @@
 
     <!-- Vision & Mission Section -->
     <section id="vision-mission" class="py-16">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-6 ">
             <h2 class="text-3xl font-bold text-center text-gray-800" data-aos="fade-up" data-aos-duration="1000">Visi & Misi</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
                 @if($visiMisi)

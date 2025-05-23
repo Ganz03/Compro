@@ -13,13 +13,11 @@
     <style>
         /* Apply the background to the entire page */
         body {
-            /* background-image: url("{{ asset('images/Desain tanpa judul.svg') }}");  */
+            background-image: url("{{ asset('images/background.jpg') }}"); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            backdrop-filter: blur(8px); /* Efek blur langsung pada body */
-            -webkit-backdrop-filter: blur(8px); /* Untuk kompatibilitas dengan Safari */
         }
         .team-section {
             text-align: center;
@@ -309,36 +307,36 @@
        </div>
    </section>
 
-   <footer class="bg-[#816C6B] text-white py-12">
-       <div class="container mx-auto px-8">
-           <div class="flex flex-wrap justify-between gap-x-4 gap-y-8">
-               <!-- Company Info -->
-               <div class="w-full md:w-auto">
-                   <div>
-                       <img src="{{ asset('images/logo.png') }}" alt="Company Logo" class="h-12 mb-4">
-                       <span class="text-xl font-bold text-white">PT. SIDOREJO MAKMUR SEJAHTERA</span>
-                   </div>
-                   <p class="text-sm leading-relaxed mt-4">
-                       PT SIDOREJO MAKMUR SEJAHTERA adalah perusahaan yang bergerak dalam bidang migas dan retail.
-                   </p>
-                   <div class="flex space-x-4 mt-4">
-                       <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-instagram"></i></a>
-                       <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-linkedin"></i></a>
-                       <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-facebook"></i></a>
-                   </div>
-               </div>
+       <footer class="bg-[#816C6B] text-white py-12">
+    <div class="container mx-auto px-8">
+        <div class="flex justify-between gap-x-40">
+            <!-- Company Info -->
+            <div>
+                <div>
+                    <img src="{{ asset('images/logo.png') }}" alt="Company Logo" class="h-12 mb-4">
+                    <span class="text-xl font-bold text-white">PT. SIDOREJO MAKMUR SEJAHTERA</span>
+                </div>
+                <p class="text-sm leading-relaxed">
+                    PT SIDOREJO MAKMUR SEJAHTERA adalah perusahaan yang bergerak dalam bidang migas dan retail.
+                </p>
+                <div class="flex space-x-4 mt-4">
+                    <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
 
-               <!-- About Us Section -->
-               <div class="w-full md:w-auto">
-                   <h3 class="font-semibold text-lg mb-4">About Us</h3>
-                   <ul class="space-y-2">
-                       <li><a href="#" class="text-gray-300 hover:text-white">Profile</a></li>
-                       <li><a href="#" class="text-gray-300 hover:text-white">Visi & Misi</a></li>
-                   </ul>
-               </div>
+            <!-- About Us Section (Ensure it stays in one line) -->
+            <div>
+                <h3 class="font-semibold text-lg mb-4">About Us</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white">Profile</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white">Visi & Misi</a></li>
+                </ul>
+            </div>
 
-               <!-- Career Section -->
-               <div class="w-full md:w-auto">
+            <!-- Career Section -->
+            <div class="w-full md:w-auto">
                    <h3 class="font-semibold text-lg mb-4">Career</h3>
                    <ul class="space-y-2">
                        @foreach($allSpbus as $footerSpbu)
@@ -352,23 +350,24 @@
                    </ul>
                </div>
 
-               <!-- Contact Section -->
-               <div class="w-full md:w-auto">
-                   <h3 class="font-semibold text-lg mb-4">Contact</h3>
-                   <p class="text-sm text-gray-300 leading-relaxed">
-                       {{ $spbu->address }}, {{ $spbu->city }}, {{ $spbu->province }}, {{ $spbu->postal_code }}
-                   </p>
-                   <p class="mt-2 text-sm text-gray-300">Phone: {{ $spbu->phone }}</p>
-                   <p class="mt-2 text-sm text-gray-300">Email: {{ $spbu->email }}</p>
-               </div>
-           </div>
+            <!-- Contact Section -->
+            <div>
+                <h3 class="font-semibold text-lg mb-4">Contact</h3>
+                <p class="text-sm text-gray-300 leading-relaxed">
+                    Jl. Raya Semarang - Demak No. Km. 13, Bandungrjeo, Kec. Mranggen, Kabupaten Demak, Jawa Tengah 59567
+                </p>
+                <p class="mt-2 text-sm text-gray-300">Phone: +62 8123-2321-1234</p>
+                <p class="mt-2 text-sm text-gray-300">Email: spbu4459518@gmail.com</p>
+            </div>
+        </div>
 
-           <!-- Footer Bottom (Aligned to the Left) -->
-           <div class="container mt-8">
-               <p>&copy; {{ date('Y') }} PT Sidorejo Makmur Sejahtera. All rights reserved.</p>
-           </div>
-       </div>
-   </footer>
+        <!-- Footer Bottom (Aligned to the Left) -->
+        <div class="container">
+            <p>&copy; 2025 PT Sidorejo Makmur Sejahtera. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
 
    <!-- Script AOS dan Typed.js -->
    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

@@ -147,7 +147,7 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer>
+    <footer class="bg-[#816C6B] text-white py-12">
         <div class="container mx-auto px-8">
             <div class="flex justify-between gap-x-40">
                 <!-- Company Info -->
@@ -166,7 +166,7 @@
                     </div>
                 </div>
 
-                <!-- About Us Section -->
+                <!-- About Us Section (Ensure it stays in one line) -->
                 <div>
                     <h3 class="font-semibold text-lg mb-4">About Us</h3>
                     <ul class="space-y-2">
@@ -176,13 +176,19 @@
                 </div>
 
                 <!-- Career Section -->
-                <div>
+                <div class="w-full md:w-auto">
                     <h3 class="font-semibold text-lg mb-4">Career</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white">SPBU 44.581.24 Kaliceret</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">SPBU 44.595.13 Karanganyar</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">SPBU 44.595.18 Bandungrjeo</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white">SPBU 44.507.19 Bringin</a></li>
+                        @foreach($allSpbus as $footerSpbu)
+                            <li>
+                                <a href="{{ route('spbu.show', $footerSpbu->slug) }}" 
+                                class="text-gray-300 hover:text-white {{ 
+                                    request()->route('slug') === $footerSpbu->slug ? 'text-white font-bold' : '' 
+                                }}">
+                                    SPBU {{ $footerSpbu->code }} {{ $footerSpbu->name }}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
 
@@ -203,6 +209,7 @@
             </div>
         </div>
     </footer>
+
     
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script>

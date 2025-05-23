@@ -117,7 +117,7 @@
             <div class="w-full h-[2px] bg-gray-300 mb-8"></div>
 
             <!-- About Us Detail Text -->
-            <div class="text-left">
+            <div class="text-justify">
                 @foreach(explode("\n\n", $aboutUsDetail->company_description) as $paragraph)
                     <p class="text-lg text-gray-700 mb-6">
                         {{ trim($paragraph) }}
@@ -128,62 +128,68 @@
     </section>
 
      <!-- Footer -->
-         <footer class="bg-[#816C6B] text-white py-12">
-            <div class="container mx-auto px-8">
-                <div class="flex justify-between gap-x-40">
-                    <!-- Company Info -->
+    <footer class="bg-[#816C6B] text-white py-12">
+        <div class="container mx-auto px-8">
+            <div class="flex justify-between gap-x-40">
+                <!-- Company Info -->
+                <div>
                     <div>
-                        <div>
-                            <img src="{{ asset('images/logo.png') }}" alt="Company Logo" class="h-12 mb-4">
-                            <span class="text-xl font-bold text-white">PT. SIDOREJO MAKMUR SEJAHTERA</span>
-                        </div>
-                        <p class="text-sm leading-relaxed">
-                            PT SIDOREJO MAKMUR SEJAHTERA adalah perusahaan yang bergerak dalam bidang migas dan retail.
-                        </p>
-                        <div class="flex space-x-4 mt-4">
-                            <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-facebook"></i></a>
-                        </div>
+                        <img src="{{ asset('images/logo.png') }}" alt="Company Logo" class="h-12 mb-4">
+                        <span class="text-xl font-bold text-white">PT. SIDOREJO MAKMUR SEJAHTERA</span>
                     </div>
-
-                    <!-- About Us Section (Ensure it stays in one line) -->
-                    <div>
-                        <h3 class="font-semibold text-lg mb-4">About Us</h3>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-300 hover:text-white">Profile</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-white">Visi & Misi</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Career Section -->
-                    <div>
-                        <h3 class="font-semibold text-lg mb-4">Career</h3>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-300 hover:text-white">SPBU 44.581.24 Kaliceret</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-white">SPBU 44.595.13 Karanganyar</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-white">SPBU 44.595.18 Bandungrjeo</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-white">SPBU 44.507.19 Bringin</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Contact Section -->
-                    <div>
-                        <h3 class="font-semibold text-lg mb-4">Contact</h3>
-                        <p class="text-sm text-gray-300 leading-relaxed">
-                            Jl. Raya Semarang - Demak No. Km. 13, Bandungrjeo, Kec. Mranggen, Kabupaten Demak, Jawa Tengah 59567
-                        </p>
-                        <p class="mt-2 text-sm text-gray-300">Phone: +62 8123-2321-1234</p>
-                        <p class="mt-2 text-sm text-gray-300">Email: spbu4459518@gmail.com</p>
+                    <p class="text-sm leading-relaxed">
+                        PT SIDOREJO MAKMUR SEJAHTERA adalah perusahaan yang bergerak dalam bidang migas dan retail.
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-white hover:text-yellow-400"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
 
-                <!-- Footer Bottom (Aligned to the Left) -->
-                <div class="container">
-                    <p>&copy; 2025 PT Sidorejo Makmur Sejahtera. All rights reserved.</p>
+                <!-- About Us Section (Ensure it stays in one line) -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">About Us</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Profile</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Visi & Misi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Career Section -->
+                <div class="w-full md:w-auto">
+                    <h3 class="font-semibold text-lg mb-4">Career</h3>
+                    <ul class="space-y-2">
+                        @foreach($allSpbus as $footerSpbu)
+                            <li>
+                                <a href="{{ route('spbu.show', $footerSpbu->slug) }}" 
+                                class="text-gray-300 hover:text-white {{ 
+                                    request()->route('slug') === $footerSpbu->slug ? 'text-white font-bold' : '' 
+                                }}">
+                                    SPBU {{ $footerSpbu->code }} {{ $footerSpbu->name }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Contact</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Jl. Raya Semarang - Demak No. Km. 13, Bandungrjeo, Kec. Mranggen, Kabupaten Demak, Jawa Tengah 59567
+                    </p>
+                    <p class="mt-2 text-sm text-gray-300">Phone: +62 8123-2321-1234</p>
+                    <p class="mt-2 text-sm text-gray-300">Email: spbu4459518@gmail.com</p>
                 </div>
             </div>
-        </footer>
+
+            <!-- Footer Bottom (Aligned to the Left) -->
+            <div class="container">
+                <p>&copy; 2025 PT Sidorejo Makmur Sejahtera. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script>
