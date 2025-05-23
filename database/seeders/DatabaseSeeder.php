@@ -28,34 +28,36 @@ class DatabaseSeeder extends Seeder
         // Disable foreign key checks
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
-        $this->call([
-            'seedUsers',
-            'seedHeroSections',
-            'seedAboutUs',
-            'seedAboutUsDetails',
-            'seedVisiMisi',
-            'seedPartners',
-            'seedNewsCategories',
-            'seedNews',
-            'seedSpbus',
-            'seedTeams',
-            'seedFacilities',
-            'seedContacts',
-        ]);
+        // FIXED: Panggil method langsung, bukan dengan call()
+        $this->seedUsers();
+        $this->seedHeroSections();
+        $this->seedAboutUs();
+        $this->seedAboutUsDetails();
+        $this->seedVisiMisi();
+        $this->seedPartners();
+        $this->seedNewsCategories();
+        $this->seedNews();
+        $this->seedSpbus();
+        $this->seedTeams();
+        $this->seedFacilities();
+        $this->seedContacts();
 
         // Re-enable foreign key checks
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        
+        $this->command->info('✅ All seeders completed successfully!');
     }
 
     private function seedUsers()
     {
+        $this->command->info('🌱 Seeding users...');
         DB::table('users')->truncate();
         DB::table('users')->insert([
             'id' => 1,
             'name' => 'admin',
             'email' => 'arganapulungan@gmail.com',
             'email_verified_at' => null,
-            'password' => '$2y$12$5vrFr.JNO0wccjq1K.0..uXmIAV5jLOq5c5yYNvaEJFzif2uWbTOe',
+            'password' => Hash::make('password'), // Use Hash::make instead of hardcoded hash
             'remember_token' => null,
             'created_at' => '2025-05-12 02:36:45',
             'updated_at' => '2025-05-12 02:36:45',
@@ -64,6 +66,7 @@ class DatabaseSeeder extends Seeder
 
     private function seedHeroSections()
     {
+        $this->command->info('🌱 Seeding hero sections...');
         DB::table('hero_sections')->truncate();
         DB::table('hero_sections')->insert([
             'id' => 1,
@@ -78,6 +81,7 @@ class DatabaseSeeder extends Seeder
 
     private function seedAboutUs()
     {
+        $this->command->info('🌱 Seeding about us...');
         DB::table('about_us')->truncate();
         DB::table('about_us')->insert([
             'id' => 1,
@@ -91,6 +95,7 @@ class DatabaseSeeder extends Seeder
 
     private function seedAboutUsDetails()
     {
+        $this->command->info('🌱 Seeding about us details...');
         DB::table('about_us_details')->truncate();
         DB::table('about_us_details')->insert([
             'id' => 1,
@@ -108,6 +113,7 @@ Perkembangan berlanjut dengan berdirinya SPBU 44.507.19 yang berlokasi di Bringi
 
     private function seedVisiMisi()
     {
+        $this->command->info('🌱 Seeding visi misi...');
         DB::table('visi_misi')->truncate();
         DB::table('visi_misi')->insert([
             'id' => 1,
@@ -120,6 +126,7 @@ Perkembangan berlanjut dengan berdirinya SPBU 44.507.19 yang berlokasi di Bringi
 
     private function seedPartners()
     {
+        $this->command->info('🌱 Seeding partners...');
         DB::table('partners')->truncate();
         $partners = [
             [
@@ -155,6 +162,7 @@ Perkembangan berlanjut dengan berdirinya SPBU 44.507.19 yang berlokasi di Bringi
 
     private function seedNewsCategories()
     {
+        $this->command->info('🌱 Seeding news categories...');
         DB::table('news_categories')->truncate();
         $categories = [
             [
@@ -201,6 +209,7 @@ Perkembangan berlanjut dengan berdirinya SPBU 44.507.19 yang berlokasi di Bringi
 
     private function seedNews()
     {
+        $this->command->info('🌱 Seeding news...');
         DB::table('news')->truncate();
         DB::table('news_category')->truncate();
         
@@ -268,6 +277,7 @@ Perkembangan berlanjut dengan berdirinya SPBU 44.507.19 yang berlokasi di Bringi
 
     private function seedSpbus()
     {
+        $this->command->info('🌱 Seeding SPBUs...');
         DB::table('spbus')->truncate();
         $spbus = [
             [
@@ -359,6 +369,7 @@ Perkembangan berlanjut dengan berdirinya SPBU 44.507.19 yang berlokasi di Bringi
 
     private function seedTeams()
     {
+        $this->command->info('🌱 Seeding teams...');
         DB::table('teams')->truncate();
         $teams = [
             [
@@ -425,6 +436,7 @@ Perkembangan berlanjut dengan berdirinya SPBU 44.507.19 yang berlokasi di Bringi
 
     private function seedFacilities()
     {
+        $this->command->info('🌱 Seeding facilities...');
         DB::table('facilities')->truncate();
         $facilities = [
             // SPBU Karangawen (ID: 1)
@@ -450,7 +462,7 @@ Perkembangan berlanjut dengan berdirinya SPBU 44.507.19 yang berlokasi di Bringi
                 'created_at' => '2025-05-17 01:03:55',
                 'updated_at' => '2025-05-18 18:08:57',
             ],
-            [
+           [
                 'id' => 3,
                 'spbu_id' => 1,
                 'name' => 'AIR RADIATOR DAN ISI ANGIN BAN GRATIS',
@@ -762,6 +774,7 @@ Perkembangan berlanjut dengan berdirinya SPBU 44.507.19 yang berlokasi di Bringi
 
     private function seedContacts()
     {
+        $this->command->info('🌱 Seeding contacts...');
         DB::table('contacts')->truncate();
         $contacts = [
             [
