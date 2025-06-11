@@ -333,7 +333,7 @@
                     <div class="absolute inset-0 flex flex-col justify-between z-20 p-6">
                         <!-- Logo Pertamina di kiri atas -->
                         <div class="absolute" style="top: 0; left: -1px; transform: translateY(-25px);">
-                            <img src="{{ asset('images/pertamina-logo.png') }}" alt="Pertamina Logo" class="h-40">
+                            <img src="{{ asset('images/Pertamina-Logo.png') }}" alt="Pertamina Logo" class="h-40">
                         </div>
 
                         <!-- Teks Judul dan Deskripsi -->
