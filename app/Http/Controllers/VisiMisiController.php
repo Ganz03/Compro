@@ -12,7 +12,7 @@ class VisiMisiController extends Controller
      */
     public function index()
     {
-        $visiMisi = VisiMisi::first(); // Ambil data pertama
+        $visiMisi = Visimisi::first(); // Ambil data pertama
         return $visiMisi;
     }
 }
